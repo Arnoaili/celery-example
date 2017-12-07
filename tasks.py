@@ -1,8 +1,10 @@
 from celery import Celery
 
 app = Celery('tasks',
-              broker='redis://localhost',
-	          backend='redis://localhost')
+              broker='amqp://localhost',
+	          backend='amqp://localhost')
+
+# amqp://127.0.0.1:5672
 
 @app.task
 def add(x,y):
